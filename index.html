@@ -7,22 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #050505;
-            --bg-surface: #121212;
-            --bg-surface-hover: #1e1e1e;
-            --primary-color: #ff3b00; /* Orange-Red */
-            --primary-gradient: linear-gradient(135deg, #ff3b00, #cc0000);
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --border-color: #2a2a2a;
+            --bg-base: #f7faff;
+            --bg-surface: #ffffff;
+            --bg-surface-hover: #eaf2ff;
+            --primary-color: #2563eb; /* Blue */
+            --primary-gradient: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #dbe7f5;
+            --shadow: 0 6px 24px rgba(37, 99, 235, 0.10);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
             background-color: var(--bg-base);
@@ -31,21 +27,14 @@
             scroll-behavior: smooth;
         }
 
-        /* Typography */
         h1, h2, h3, h4 { color: var(--text-main); font-weight: 800; }
         p { color: var(--text-muted); margin-bottom: 1rem; }
         a { color: var(--primary-color); text-decoration: none; }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Header / Navbar */
         header {
-            background-color: rgba(5, 5, 5, 0.9);
+            background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
@@ -54,88 +43,36 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px; }
+        .logo span { color: var(--primary-color); }
+        .nav-links a { margin-left: 20px; font-weight: 600; font-size: 0.9rem; transition: color 0.3s; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--primary-color); }
 
         .btn-primary {
             background: var(--primary-gradient);
-            color: #fff;
+            color: #fff !important;
             padding: 10px 24px;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 600;
             border: none;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 59, 0, 0.4);
-            color: #fff;
-        }
-
-        /* Hero Section */
         .hero {
             padding: 160px 0 80px;
             text-align: center;
-            background: radial-gradient(circle at top, #1a0804 0%, var(--bg-base) 60%);
+            background: radial-gradient(circle at top, #dbeafe 0%, var(--bg-base) 65%);
             border-bottom: 1px solid var(--border-color);
         }
+        .hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1.5px; }
+        .hero h1 span { background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.subtitle { font-size: 1.25rem; max-width: 700px; margin: 0 auto 30px; }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
-        }
-
-        .hero h1 span {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p.subtitle {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        .hero-meta {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
+        .hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
         .hero-meta div {
             background: var(--bg-surface);
             padding: 10px 20px;
@@ -143,40 +80,23 @@
             font-size: 0.9rem;
             border: 1px solid var(--border-color);
             color: var(--text-main);
+            box-shadow: var(--shadow);
         }
+        .hero-meta div span { color: var(--primary-color); font-weight: 600; }
 
-        .hero-meta div span {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        /* Pricing Card Component */
-        .pricing-section {
-            padding: 80px 0;
-            background-color: var(--bg-base);
-        }
-
+        .pricing-section { padding: 80px 0; background-color: var(--bg-base); }
         .pricing-card {
-            background: linear-gradient(145deg, #181818, #0d0d0d);
+            background: linear-gradient(145deg, #ffffff, #eef5ff);
             border: 2px solid var(--primary-color);
             border-radius: 12px;
             padding: 40px 30px;
             max-width: 650px;
             margin: 0 auto;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(255, 59, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
         }
-
-        .price-tag {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 15px 0 20px;
-        }
-
-        .price-tag span {
-            color: var(--primary-color);
-        }
+        .price-tag { font-size: 3rem; font-weight: 800; color: var(--text-main); margin: 15px 0 20px; }
+        .price-tag span { color: var(--primary-color); }
 
         .schedule-list {
             display: grid;
@@ -184,70 +104,83 @@
             gap: 15px;
             margin-bottom: 30px;
             text-align: left;
-            background: #000;
+            background: #fff;
             padding: 20px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
+        .schedule-item div { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .schedule-item strong { font-size: 1rem; color: var(--text-main); }
 
-        .schedule-item div {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .schedule-item strong {
-            font-size: 1rem;
-            color: #fff;
-        }
-
-        /* Tech Stack */
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 40px;
-        }
-
+        .tech-stack { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
         .tech-badge {
-            background: #111;
-            border: 1px solid #333;
+            background: #fff;
+            border: 1px solid #bfd6f6;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #ddd;
+            color: #1e3a8a;
         }
 
-        /* Section Titles */
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-align: center;
-            letter-spacing: -1px;
+        .offer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .offer-note {
+            background: #fff7ed;
+            border: 1px dashed #f59e0b;
+            color: #9a3412;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .pricing-card { position: relative; }
+        .pricing-ribbon {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 22px;
+            border-radius: 999px;
+            white-space: nowrap;
+            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
         }
 
-        /* Accordion / Syllabus */
-        .syllabus-section {
-            padding: 80px 0;
-            background-color: var(--bg-base);
-        }
+        .section-title { font-size: 2.5rem; margin-bottom: 40px; text-align: center; letter-spacing: -1px; }
 
-        .accordion {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
+        .syllabus-section { padding: 80px 0; background-color: var(--bg-base); }
+        .accordion { max-width: 900px; margin: 0 auto; }
         .accordion-item {
             background-color: var(--bg-surface);
             border: 1px solid var(--border-color);
             margin-bottom: 15px;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
         }
-
         .accordion-header {
             width: 100%;
             padding: 20px 25px;
@@ -263,82 +196,40 @@
             align-items: center;
             transition: background 0.3s;
         }
-
-        .accordion-header:hover {
-            background-color: var(--bg-surface-hover);
-        }
-
-        .accordion-header span {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-        }
-
-        .accordion-header.active span {
-            transform: rotate(45deg);
-        }
+        .accordion-header:hover { background-color: var(--bg-surface-hover); }
+        .accordion-header span { color: var(--primary-color); font-size: 1.5rem; transition: transform 0.3s; }
+        .accordion-header.active span { transform: rotate(45deg); }
 
         .accordion-content {
             padding: 0 25px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out, padding 0.4s ease;
-            background-color: #0a0a0a;
+            background-color: #f3f8ff;
         }
-
-        .accordion-content.active {
-            padding: 25px;
-        }
+        .accordion-content.active { padding: 25px; }
 
         .module-block { margin-bottom: 20px; }
         .module-block h4 { color: var(--primary-color); margin-bottom: 10px; font-size: 1.1rem; }
         .module-block ul { list-style: none; padding-left: 10px; }
         .module-block ul li { position: relative; padding-left: 20px; margin-bottom: 8px; color: var(--text-muted); }
-        .module-block ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
+        .module-block ul li::before { content: '▹'; position: absolute; left: 0; color: var(--primary-color); }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.9rem;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            text-align: left;
-        }
-        th {
-            background-color: #1a1a1a;
-            color: #fff;
-        }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9rem; background: #fff; }
+        th, td { padding: 12px; border: 1px solid var(--border-color); text-align: left; }
+        th { background-color: #e3eeff; color: var(--text-main); }
         td { color: var(--text-muted); }
 
         .scope-section {
-            background-color: var(--bg-surface);
+            background-color: #eaf2ff;
             padding: 60px 0;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
+        .scope-box { max-width: 900px; margin: 0 auto; border-left: 4px solid var(--primary-color); padding-left: 25px; }
 
-        .scope-box {
-            max-width: 900px;
-            margin: 0 auto;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 25px;
-        }
-
-        footer {
-            padding: 60px 0 40px;
-            text-align: center;
-            background-color: var(--bg-base);
-        }
-
-        .contact-email { color: var(--primary-color); font-weight: 600; font-size: 1.2rem; margin-top: 10px; display:flex; flex-direction: column; gap: 5px;}
+        footer { padding: 60px 0 40px; text-align: center; background-color: var(--bg-base); }
+        .contact-email { color: var(--primary-color); font-weight: 600; font-size: 1.2rem; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -364,12 +255,13 @@
 
     <section class="hero">
         <div class="container">
+            <div class="offer-badge">🔥 Price Slashed in Half · Ends Oct 10</div>
             <h1>End-to-End <br><span>Data Engineering</span></h1>
             <p class="subtitle">Master modern data pipelines, warehousing, and orchestration with a heavy focus on Databricks Certification Prep.</p>
 
             <div class="hero-meta">
                 <div>Level: <span>Beginner to Intermediate</span></div>
-                <div>Starts: <span>October 5</span></div>
+                <div>Starts: <span>October 12</span></div>
                 <div>Duration: <span>40 Days</span></div>
             </div>
 
@@ -394,7 +286,6 @@
             <h2 class="section-title">Course Syllabus</h2>
             <div class="accordion">
 
-                <!-- Module 1 -->
                 <div class="accordion-item">
                     <button class="accordion-header">1. Python for Data Engineering (Foundation) <span>+</span></button>
                     <div class="accordion-content">
@@ -432,7 +323,6 @@
                     </div>
                 </div>
 
-                <!-- Module 2 -->
                 <div class="accordion-item">
                     <button class="accordion-header">2. SQL for Data Engineering <span>+</span></button>
                     <div class="accordion-content">
@@ -467,7 +357,6 @@
                     </div>
                 </div>
 
-                <!-- Module 3 -->
                 <div class="accordion-item">
                     <button class="accordion-header">3. Data Modeling & Warehousing <span>+</span></button>
                     <div class="accordion-content">
@@ -499,7 +388,6 @@
                     </div>
                 </div>
 
-                <!-- Module 4 -->
                 <div class="accordion-item">
                     <button class="accordion-header">4. Data Pipelines & ETL/ELT <span>+</span></button>
                     <div class="accordion-content">
@@ -530,7 +418,6 @@
                     </div>
                 </div>
 
-                <!-- Module 5 -->
                 <div class="accordion-item">
                     <button class="accordion-header">5. Apache Airflow (Full) <span>+</span></button>
                     <div class="accordion-content">
@@ -571,7 +458,6 @@
                     </div>
                 </div>
 
-                <!-- Module 6 -->
                 <div class="accordion-item">
                     <button class="accordion-header">6. PySpark & Big Data Processing <span>+</span></button>
                     <div class="accordion-content">
@@ -599,7 +485,6 @@
                     </div>
                 </div>
 
-                <!-- Module 7 (Massive) -->
                 <div class="accordion-item" style="border: 2px solid var(--primary-color);">
                     <button class="accordion-header">7. Databricks (Full) — Certification Prep <span>+</span></button>
                     <div class="accordion-content">
@@ -625,7 +510,6 @@
                                 <li>Compute types (All-Purpose, Job Clusters, SQL Warehouses, Serverless)</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>B. Data Ingestion and Loading</h4>
                             <ul>
@@ -635,7 +519,6 @@
                                 <li>Relational entities & Unity Catalog namespace</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>C. Data Transformation and Modeling</h4>
                             <ul>
@@ -646,7 +529,6 @@
                                 <li>ELT with Spark SQL and Python</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>D. Working with Lakeflow Jobs</h4>
                             <ul>
@@ -655,7 +537,6 @@
                                 <li>Data quality Expectations & AUTO CDC</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>E. Implementing CI/CD</h4>
                             <ul>
@@ -664,7 +545,6 @@
                                 <li>Typical flow: Git → PR tests → Staging → Prod</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>F. Troubleshooting, Monitoring & Optimization</h4>
                             <ul>
@@ -673,7 +553,6 @@
                                 <li>Common fixes (compaction, salting, AQE, broadcast joins)</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>G. Governance and Security (Unity Catalog)</h4>
                             <ul>
@@ -682,7 +561,6 @@
                                 <li>Data lineage, Volumes, and Audit logging</li>
                             </ul>
                         </div>
-
                         <div class="module-block">
                             <h4>H. Databricks + Airflow Integration</h4>
                             <ul>
@@ -693,7 +571,6 @@
                     </div>
                 </div>
 
-                <!-- Module 8 -->
                 <div class="accordion-item">
                     <button class="accordion-header">8. Streaming & Real-Time Data (Intro) <span>+</span></button>
                     <div class="accordion-content">
@@ -707,7 +584,6 @@
                     </div>
                 </div>
 
-                <!-- Module 9 -->
                 <div class="accordion-item">
                     <button class="accordion-header">9. Infrastructure, Version Control & CI/CD <span>+</span></button>
                     <div class="accordion-content">
@@ -739,7 +615,6 @@
                     </div>
                 </div>
 
-                <!-- Module 10 -->
                 <div class="accordion-item" id="projects">
                     <button class="accordion-header">10. Capstone Projects <span>+</span></button>
                     <div class="accordion-content">
@@ -802,13 +677,13 @@
     <section class="pricing-section" id="batch-info">
         <div class="container">
             <div class="pricing-card">
-                <h3>Upcoming Live Batch Details</h3>
-                <div class="price-tag">₹7,000 <span>All-Inclusive</span></div>
-
+                <div class="pricing-ribbon">Half Price Offer</div>
+                <h3 style="margin-top: 10px;">Upcoming Live Batch Details</h3>
+                <div class="offer-note" style="margin-top: 20px;">🎉 We've cut the course fee to half of the original price. Grab your seat before the offer ends on October 10!</div>
                 <div class="schedule-list">
                     <div class="schedule-item">
                         <div>Start Date</div>
-                        <strong>October 5</strong>
+                        <strong>October 12</strong>
                     </div>
                     <div class="schedule-item">
                         <div>Duration</div>
@@ -837,8 +712,8 @@
             <div class="contact-email">
                 <a href="mailto:learnwithjafer@gmail.com">learnwithjafer@gmail.com</a>
             </div>
-            <p style="margin-top: 20px; color: #a3a3a3; font-weight: 600;">Powered by <a style="color: #ff3b00;" href="https://kubeengineering.parottasalna.com/" target="_blank">ParottaSalna</a></p>
-            <p style="margin-top: 40px; color: #555;">&copy; 2026 Dr. Ganesh Academy. All rights reserved.</p>
+            <p style="margin-top: 20px; color: #475569; font-weight: 600;">Powered by <a style="color: #2563eb;" href="https://kubeengineering.parottasalna.com/" target="_blank">ParottaSalna</a></p>
+            <p style="margin-top: 40px; color: #94a3b8;">&copy; 2026 Parottasalna. All rights reserved.</p>
         </div>
     </footer>
 
